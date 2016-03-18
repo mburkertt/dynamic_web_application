@@ -1,0 +1,189 @@
+body {
+	font-family:Verdana, Geneva, sans-serif;
+}
+#container {
+	padding: 30px 0;
+	margin: 0 30px;
+}
+header {margin-top:25px; border-bottom:1px solid rgba(0,0,0,.2); padding-bottom:15px;}
+h3 {font-weight:700;}
+a,
+a:hover {
+	color:#222;
+}
+
+td p {margin:10px 0px 0 0;}
+
+input[type="search"] {
+border: 1px solid #c4c4c4;
+border-radius: 5px;
+height: 31px;
+box-shadow: inset 0px 0px 9px #c3c3c4;
+margin-left: 5px;
+font-size: 12px;
+font-weight: normal;
+padding-left: 8px;
+}
+
+
+h1 {
+	margin-top: 2em;
+	font-size: 1.3em;
+	font-weight: bold;
+	line-height: 1.6em;
+	color: #4E6CA3;
+	border-bottom: 1px solid #B0BED9;
+	clear: both;	
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	background:#e20026;
+}
+
+.nav-pills > li > a {
+	background: #e2e2e3;
+}
+.nav-pills > li.active > a:hover {
+	background: #4c4c4c;
+}
+
+.tabpanel {
+	margin:20px 0px 20px;
+	border-bottom: 1px solid #c2c2c3;
+}
+
+.tab-content {
+	padding:10px 0;
+}
+
+.tabpanel:nth-child(2) .tab-content {
+	padding-top:0px
+}
+
+.tab-content a {
+	line-height:1.85em;
+}
+
+.tab-content .fa {
+	margin-right:5px;
+}
+
+/*Table*/
+
+table {
+  font-size:.9em ;
+}
+table .fa {
+	font-size: 2em;
+}
+table button {
+	border:none;
+	background:none;
+}
+.glyphicon {
+	font-size:.7em;
+	margin-right:5px;
+	vertical-align:text-top;
+	margin-top:2px;
+}
+.glyphicon-sort {
+	font-size:1em;
+	margin-left:5px;
+}
+/*thead tr {
+	background-color:#c5c5c5 !important;
+	border-bottom:5px solid #fff;
+}*/
+thead tr {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+thead tr th:nth-child(2) {
+	cursor:pointer;
+}
+tr:nth-child(odd) {
+  background-color: #e2e2e2;
+}
+th, td {
+    display: table-cell;
+    padding: 9px 7px;
+    text-align: left;
+	vertical-align: middle;
+	border-right:1px solid #c3c3c4;
+	width:auto;
+}
+td a {
+	cursor:pointer;
+}
+td:first-child,
+td:last-child { 
+	width:75px;
+	text-align:center;
+}
+
+td:before {
+  content: attr(data-label) ": ";
+  display: inline-block;
+  font-weight: bold;
+  width: 5em;
+}
+td[data-label="Differenz"] {
+	color:#fff;
+}
+.btn {font-size:12px;}
+.refresh {
+	cursor:pointer;
+	text-align:center;
+}
+
+.dataTables_wrapper {
+	padding-left:10px;
+}
+
+label {margin-top:5px;}
+
+@media screen and (min-width: 768px) {
+  table {
+    display: table;
+    width: 100%;
+  }
+
+  thead {
+   display: table-header-group;
+  }
+
+  thead tr {
+    position: static;
+    top: auto;
+    left: auto;
+  }
+  thead tr th {
+	background:#c3c3c4;
+	border-right:1px solid #e2e2e2;
+	}
+  tbody {
+    display: table-row-group;
+  }
+
+  tr {
+    display: table-row;
+  }
+
+  th, td {
+    display: table-cell;
+    padding: 9px 7px;
+    text-align: center;
+	vertical-align: middle;
+	width:200px;
+  }
+
+  td:before {
+    content:"";
+    width: auto;
+	display:none;
+  }
+  form {
+	margin:0px;  
+  }
+  .size-wide .modal-dialog {width:780px;}
+}
