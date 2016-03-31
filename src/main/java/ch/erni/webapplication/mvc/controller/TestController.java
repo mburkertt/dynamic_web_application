@@ -1,20 +1,23 @@
 package ch.erni.webapplication.mvc.controller;
 
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-import ch.erni.webapplication.service.HtmlDocumentParser;
+import ch.erni.webapplication.model.DataInput;
+import ch.erni.webapplication.model.PageInformationObject;
+import ch.erni.webapplication.model.ParsedValueBean;
+import ch.erni.webapplication.service.ModelBeanBuilderService;
 
 /**
  * 
@@ -26,33 +29,43 @@ public class TestController {
 
 	@Resource(name = "locale")
 	public Locale locVar;
-	
 	@Resource(name = "scanUrl")
-	public List<String> scanUrl;
-	
+	public String scanUrl;
 	@Resource(name = "searchWords")
-	public List<String> searchWords;
+	public String searchWords;
+	private ModelBeanBuilderService modelBeanBuilderService;
 
-	private HtmlDocumentParser documentParser;
 
 	@Autowired
-	public TestController(HtmlDocumentParser documentParser) {
-		this.documentParser = documentParser;
+	public TestController(ModelBeanBuilderService modelBeanBuilderService) {
+		this.modelBeanBuilderService = modelBeanBuilderService;
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String viewJsp(ModelMap model) throws Exception {
-		Map<String,Boolean> stringCheckOfHtmlDocument = documentParser.stringCheckForParsedDocument(documentParser.getADocumentOutOfAHtmlPage(scanUrl), searchWords);
-		model.put("stringCheck", stringCheckOfHtmlDocument);
+		modelBeanBuilderService.initDataInputForValidation(searchWords, scanUrl);
+		modelBeanBuilderService.initParsedValueBean(searchWords, scanUrl);
+		Map<String, PageInformationObject> crawlingInformation = modelBeanBuilderService.getCrawlingInformation();
+		model.put("crawlingDataMap", crawlingInformation);
 		model.put("locVar", locVar);
 		return "view";
 	}
 	
-	@RequestMapping(value = "/failed", method = RequestMethod.POST)
-	public String viewFailedRefresh(ModelMap model, @RequestParam(value = "locVar", required = true) String locVar)
-			throws Exception {
-		model.put("locVar", locVar);
-		return "view";
-	}
+//	   @RequestMapping(value = "/search", method = RequestMethod.GET)
+//	   public ModelAndView dataInput() {
+//	      return new ModelAndView("datainput", "command", new DataInput());
+//	   }
+//	
+//		   @RequestMapping(value = "/addSearch", method = RequestMethod.POST)
+//		   public String addSearch(@ModelAttribute("SpringWeb")DataInput dataInput, 
+//		   ModelMap model) {
+//			    model.addAttribute("searchTerm", dataInput.getSearchTerm());
+//			    model.addAttribute("urlToCheck", dataInput.getUrlToCheck());
+//				modelBeanBuilderService.initDataInputForValidation(dataInput.getSearchTerm(), dataInput.getUrlToCheck());
+//				modelBeanBuilderService.initParsedValueBean(dataInput.getSearchTerm(), dataInput.getUrlToCheck());
+//				Map<String, PageInformationObject> crawlingInformation = modelBeanBuilderService.getCrawlingInformation();
+//				model.put("crawlingDataMap", crawlingInformation);
+//		return "viewWithSearch";
+//	}
 
 }

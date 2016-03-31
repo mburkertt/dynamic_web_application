@@ -16,6 +16,22 @@
 <link href="res/css/custom.css" type="text/css" rel="stylesheet"> 
 </head>
 <body>
+
+	<div class="container">		
+	    <header>
+	        <h3 class="pull-left">Webcrawler parameter form</h3>
+	        <figure class="pull-right">
+	            <img src="res/images/logo.png">
+	        </figure>
+	        <div class="clearfix"></div>
+	        <br> 
+			<a href="${localisationVariable}/${profileVariable}/searchinput"><h1><font color="blue"><spring:message code="colum.back"></spring:message></font></h1></a>
+			<br><br>
+			<spring:message code="legend.legend"></spring:message>
+			<div class="btn btn-success"><spring:message  code="legend.green"></spring:message></div>
+			<div class="btn btn-danger"><spring:message  code="legend.red"></spring:message></div> 
+	    </header>				
+	</div> 
 		
 	  <table cellspacing="0">
     <thead>

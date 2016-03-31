@@ -4,6 +4,7 @@
 package ch.erni.webapplication.root;
 
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
@@ -41,18 +42,17 @@ public class ConfigDev {
 //    return subject;
 //  }
 //    
-//  @Bean(name= "localisationVariable")
-//  public String getLocalisationVariable() {
-//    String localisationVariable = "http://localhost:8080";
-//    return localisationVariable;
-//  }
-//  
-//  @Bean(name= "profileVariable")
-//  public String getprofileVariable() {
-//    String profileVariable = "webapplication-dev";
-//    return profileVariable;
-//  }
-//  
-// 
+  @Bean(name= "localisationVariable")
+  public String getLocalisationVariable() {
+    String localisationVariable = "http://localhost:8080";
+    return localisationVariable;
+  }
+
+  @Bean(name= "profileVariable")
+  public String getprofileVariable() {
+    String profileVariable = "dynamic_web_application-dev";
+    return profileVariable;
+  }
+  
   
 }

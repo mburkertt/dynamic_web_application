@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import org.springframework.cloud.app.ApplicationInstanceInfo;
-import org.springframework.cloud.config.java.AbstractCloudConfig;
-import org.springframework.cloud.config.java.ServiceScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -25,20 +22,22 @@ public class Config  {
     return locale;
   }
   
+  
   @Bean(name= "scanUrl")
-  public List<String> getScanUrl() {
-	  List<String> scanUrl = new ArrayList<String>();
-	  scanUrl.add("https://sps2010.erninet.ch/news/Pages/NewsHome.aspx");
-	  scanUrl.add("https://sps2010-secure.erninet.ch/Projects/Pages/default.aspx");
-	  scanUrl.add("http://jsoup.org/cookbook/introduction/");
+  public String getScanUrl() {
+	  String scanUrl = "https://sps2010.erninet.ch/news/Pages/NewsHome.aspx";
     return scanUrl;
   }
   
   @Bean(name= "searchWords")
-  public List<String> getSearchWords() {
-	  List<String> searchWords = new ArrayList<String>();
-	  searchWords.add("Matthias Burkert");
+  public String getSearchWords() {
+	  String searchWords = "friedrich";
     return searchWords;
+  }
+  
+  @Bean(name= "crawlingDeepness")
+  public int getCrawlingDeepness() {
+    return 1;
   }
     
 //  @Resource(name = "host")

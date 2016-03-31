@@ -1,5 +1,6 @@
 package ch.erni.webapplication.root;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
@@ -36,18 +37,18 @@ public class ConfigProd {
 //    return subject;
 //  }
 //  
-//  @Bean(name= "localisationVariable")
-//  public String getLocalisationVariable() {
-//    String localisationVariable = "http://webapplication.net";
-//    return localisationVariable;
-//  }
-//  
-//  @Bean(name= "profileVariable")
-//  public String getprofileVariable() {
-//    String profileVariable = "webapplication";
-//    return profileVariable;
-//  }
-//  
+  @Bean(name= "localisationVariable")
+  public String getLocalisationVariable() {
+    String localisationVariable = "http://webapplication.net";
+    return localisationVariable;
+  }
+  
+  @Bean(name= "profileVariable")
+  public String getprofileVariable() {
+    String profileVariable = "dynamic_web_application";
+    return profileVariable;
+  }
+  
  
   
 }

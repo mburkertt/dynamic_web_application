@@ -44,6 +44,14 @@
 			<version>1.0.0.RELEASE</version>
 		</dependency>
 		
+		<!-- URL Validator to Verify al URL`s -->
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		
+		
 		<dependency>
 		  <!-- jsoup HTML parser library @ http://jsoup.org/ -->
 		  <groupId>org.jsoup</groupId>
@@ -69,6 +77,14 @@
 			<scope>provided</scope>
 		</dependency>
     
+    
+    	<!-- Junit Testing -->
+    	<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+
     
         <!--     Jackson Libary -->
         <dependency>
