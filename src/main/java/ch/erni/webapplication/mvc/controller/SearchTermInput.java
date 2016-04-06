@@ -1,6 +1,5 @@
 package ch.erni.webapplication.mvc.controller;
 
-import java.util.Locale;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -17,7 +16,7 @@ import ch.erni.webapplication.model.PageInformationObject;
 import ch.erni.webapplication.service.ModelBeanBuilderService;
 
 @Controller
-@RequestMapping(value = "/searchinput")
+@RequestMapping(value = "/")
 public class SearchTermInput {
 	
 	private ModelBeanBuilderService modelBeanBuilderService;
